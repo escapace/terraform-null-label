@@ -5,5 +5,5 @@ set -euo pipefail
 pnpm exec ls-lint || exit 1
 terraform validate || exit 1
 terraform fmt || exit 1
-
-git update-index --again && terraform-docs markdown ./ > README.md && git add README.md
+terraform-docs markdown ./ > README.md || exit 1
+git update-index --again
