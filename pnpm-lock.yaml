@@ -4,6 +4,7 @@ specifiers:
   '@commitlint/cli': 13.2.1
   '@commitlint/config-conventional': 13.2.0
   '@ls-lint/ls-lint': 1.10.0
+  '@semantic-release/exec': ^6.0.2
   husky: 7.0.4
   is-ci: ^3.0.1
   semantic-release: 18.0.0
@@ -12,6 +13,7 @@ devDependencies:
   '@commitlint/cli': 13.2.1
   '@commitlint/config-conventional': 13.2.0
   '@ls-lint/ls-lint': 1.10.0
+  '@semantic-release/exec': 6.0.2_semantic-release@18.0.0
   husky: 7.0.4
   is-ci: 3.0.1
   semantic-release: 18.0.0
@@ -347,6 +349,23 @@ packages:
   /@semantic-release/error/3.0.0:
     resolution: {integrity: sha512-5hiM4Un+tpl4cKw3lV4UgzJj+SmfNIDCLLw0TepzQxz9ZGV5ixnqkzIVF+3tp0ZHgcMKE+VNGHJjEeyFG2dcSw==}
     engines: {node: '>=14.17'}
+    dev: true
+
+  /@semantic-release/exec/6.0.2_semantic-release@18.0.0:
+    resolution: {integrity: sha512-ciaqJTHB1TFtU6C78xrgmoNI9UyfheR9+Bk6Ico7CJ7+ADOEAvUrPBKvz64UCfoWlg+SlKGTVGbFnA509wRUVw==}
+    engines: {node: '>=14.17'}
+    peerDependencies:
+      semantic-release: '>=18.0.0'
+    dependencies:
+      '@semantic-release/error': 3.0.0
+      aggregate-error: 3.1.0
+      debug: 4.3.2
+      execa: 5.1.1
+      lodash: 4.17.21
+      parse-json: 5.2.0
+      semantic-release: 18.0.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@semantic-release/github/8.0.1_semantic-release@18.0.0:
