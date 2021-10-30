@@ -7,7 +7,7 @@ module.exports = {
       "@semantic-release/exec",
       {
         publishCmd:
-          'sed -i \'s/version = "1.0.0"/version = "${nextRelease.version}"/g\' context.tf && cat variables.tf >> exports/context.tf',
+          'sed -i \'s/version = "1.0.0"/version = "${nextRelease.version}"/g\' exports/context.tf && cat variables.tf >> exports/context.tf',
       },
     ],
     [
