@@ -5,7 +5,7 @@
 
 module "this" {
   source  = "escapace/label/null"
-  version = "1.4.0"
+  version = "1.4.2"
 
   enabled             = var.enabled
   namespace           = var.namespace
