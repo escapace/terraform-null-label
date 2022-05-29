@@ -1,0 +1,68 @@
+fail_fast: false
+minimum_pre_commit_version: '2.19.0'
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.2.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: check-json
+      - id: check-symlinks
+      - id: check-vcs-permalinks
+      - id: check-yaml
+        exclude: 'templates/.*'
+
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.72.1
+    hooks:
+      # see https://github.com/antonbabenko/pre-commit-terraform#terraform_fmt
+      - id: terraform_fmt
+
+      # see https://github.com/antonbabenko/pre-commit-terraform#terraform_validate
+      - id: terraform_validate
+        exclude: '(examples|exports)/.*'
+
+      # see https://github.com/antonbabenko/pre-commit-terraform#terraform_docs
+      - id: terraform_docs
+        args:
+          - '--args=--config=.terraform-docs.yaml'
+          - '--args=--lockfile=false'
+
+      # see https://github.com/antonbabenko/pre-commit-terraform#terraform_providers_lock
+      # - id: terraform_providers_lock
+
+      # see https://github.com/antonbabenko/pre-commit-terraform#terraform_tflint
+      - id: terraform_tflint
+        exclude: '(examples|exports)/.*'
+        args:
+          - '--args=--config=__GIT_WORKING_DIR__/.tflint.hcl'
+
+      - id: terraform_tfsec
+        args:
+          - '--args=--exclude-downloaded-modules'
+          - '--args=--custom-check-dir=__GIT_WORKING_DIR__/.tfsec'
+        files: \.tf$
+        exclude: '$(examples|exports)/.*'
+
+  - repo: local
+    hooks:
+      - id: commitizen
+        name: commitizen check
+        description: "Check whether the commit message follows commiting rules"
+        entry: cz check
+        args: [--allow-abort, --commit-msg-file]
+        stages: [commit-msg]
+        language: python
+        language_version: python3
+
+      - id: ls-lint
+        name: ls-lint check
+        description: "Check file and directory names"
+        entry: ls-lint
+        always_run: true
+        pass_filenames: false
+        language: system

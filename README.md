@@ -1,8 +1,11 @@
+<!-- BEGIN_TF_DOCS -->
+# terraform-null-label
+
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1.9 |
 
 ## Providers
 
@@ -62,3 +65,4 @@ No resources.
 | <a name="output_tags"></a> [tags](#output\_tags) | Normalized Tag map |
 | <a name="output_tags_as_list_of_maps"></a> [tags\_as\_list\_of\_maps](#output\_tags\_as\_list\_of\_maps) | This is a list with one map for each `tag`. Each map contains the tag `key`,<br>`value`, and contents of `var.additional_tag_map`. Used in the rare cases<br>where resources need additional configuration information for each tag. |
 | <a name="output_tenant"></a> [tenant](#output\_tenant) | Normalized tenant |
+<!-- END_TF_DOCS -->
