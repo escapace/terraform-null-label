@@ -4,6 +4,4 @@ ls:
 ignore:
   - .git
   - .github
-  - .husky
-  - .vscode
-  - node_modules
+  - .terraform
