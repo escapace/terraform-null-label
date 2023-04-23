@@ -3,7 +3,7 @@ minimum_pre_commit_version: '2.19.0'
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.2.0
+    rev: v4.4.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -17,7 +17,7 @@ repos:
         exclude: 'templates/.*'
 
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.72.1
+    rev: v1.77.3
     hooks:
       # see https://github.com/antonbabenko/pre-commit-terraform#terraform_fmt
       - id: terraform_fmt
@@ -33,7 +33,12 @@ repos:
           - '--args=--lockfile=false'
 
       # see https://github.com/antonbabenko/pre-commit-terraform#terraform_providers_lock
-      # - id: terraform_providers_lock
+      - id: terraform_providers_lock
+        args:
+          - --args=-platform=linux_arm64
+          - --args=-platform=linux_amd64
+          - --args=-platform=darwin_amd64
+          - --args=-platform=darwin_arm64
 
       # see https://github.com/antonbabenko/pre-commit-terraform#terraform_tflint
       - id: terraform_tflint
