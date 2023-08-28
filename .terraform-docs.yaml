@@ -1,20 +1,31 @@
 formatter: markdown
-header-from: .header.md
-settings:
-  anchor: true
-  color: true
-  default: true
-  escape: true
-  html: true
-  indent: 2
-  required: true
-  sensitive: true
-  type: true
-
-sort:
-  enabled: true
-  by: required
 
 output:
   file: README.md
-  mode: replace
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
+
+sections:
+  hide: [modules, providers, requirements]
+
+sort:
+  enabled: true
+  by: name
+
+settings:
+  anchor: false
+  color: false
+  default: true
+  description: true
+  escape: true
+  hide-empty: true
+  html: false
+  indent: 0
+  lockfile: true
+  read-comments: true
+  required: true
+  sensitive: true
+  type: true
