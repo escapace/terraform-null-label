@@ -47,4 +47,10 @@
 | tags_as_list_of_maps | This is a list with one map for each `tag`. Each map contains the tag `key`, `value`, and contents of `var.additional_tag_map`. Used in the rare cases where resources need additional configuration information for each tag. |
 | tenant               | Normalized tenant                                                                                                                                                                                                              |
 
+## Requirements
+
+| Name      | Version   |
+| --------- | --------- |
+| terraform | >= 0.13.0 |
+
 <!-- END_TF_DOCS -->
