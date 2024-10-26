@@ -4,7 +4,7 @@
 #
 
 module "this" {
-  source  = "github.com/escapace/terraform-null-label?depth=1&ref=v1.6.0"
+  source = "github.com/escapace/terraform-null-label?depth=1&ref=v1.6.0"
 
   enabled             = var.enabled
   namespace           = var.namespace
